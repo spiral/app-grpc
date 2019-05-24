@@ -1,0 +1,30 @@
+# http service configuration.
+http:
+  address: 0.0.0.0:8080
+
+  workers:
+    command: "php app.php"
+
+# queue and jobs
+jobs:
+  dispatch:
+    app-job-*.pipeline: "local"
+  pipelines:
+    local:
+      broker: "ephemeral"
+  consume: ["local"]
+
+  workers:
+    command: "php app.php"
+    pool.numWorkers: 2
+
+# serve static files
+static:
+  dir:    "public"
+  forbid: [".php", ".htaccess"]
+
+# control the max memory usage
+limit:
+  services:
+    http.maxMemory: 100
+    jobs.maxMemory: 100

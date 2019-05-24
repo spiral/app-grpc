@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option php_namespace = "App\\Service";
+option php_metadata_namespace = "App\\GPBMetadata";
+
+package app;
+
+import "import/message.proto";
+
+service Service {
+    // Render welcome message
+    rpc Welcome (message.Message) returns (message.Message) {
+    }
+
+    // Schedule simple job
+    rpc Schedule (message.Job) returns (message.JobID) {
+    }
+}

@@ -1,0 +1,6 @@
+.idea
+vendor
+runtime
+composer.lock
+rr*
+.env
