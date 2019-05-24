@@ -33,9 +33,6 @@ class App extends Kernel
         // Security and validation
         Bootloader\Security\EncrypterBootloader::class,
 
-        // GRPC Dispatcher
-        Bootloader\GRPC\GRPCBootloader::class,
-
         // Databases
         Bootloader\Database\DatabaseBootloader::class,
         Bootloader\Database\MigrationsBootloader::class,
@@ -43,7 +40,8 @@ class App extends Kernel
         // ORM
         Bootloader\Cycle\CycleBootloader::class,
 
-        // Additional dispatchers
+        // Dispatchers
+        Bootloader\GRPC\GRPCBootloader::class,
         Bootloader\Jobs\JobsBootloader::class,
 
         // Extensions and bridges
