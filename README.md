@@ -54,7 +54,7 @@ On Windows:
 $ spiral.exe serve -v -d
 ```
 
-Application will be available on `http://localhost:8080`.
+TODO: write how to start grpc and test it
 
 > Read more about application server configuration [here](https://roadrunner.dev/docs).
 
