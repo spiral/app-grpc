@@ -66,8 +66,7 @@ To update or generate service code for your application run:
 $ php ./app.php grpc:generate proto/service.proto
 ```
 
-Generated code will be available in `app/src/Service`. Implement generated service interface
-and application will register it automatically.
+Generated code will be available in `app/src/Service`. Implemented service will be automatically registered in your application.
 
 License:
 --------
