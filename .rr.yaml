@@ -1,9 +1,10 @@
-# http service configuration.
+# grpc service configuration.
 grpc:
   listen: tcp://0.0.0.0:50051
   proto: "proto/service.proto"
-  workers:
-    command: "php app.php"
+  workers.command: "php app.php"
+  tls.key:  "app.key"
+  tls.cert: "app.crt"
 
 # queue and jobs
 jobs:

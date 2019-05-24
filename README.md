@@ -42,6 +42,24 @@ Once application is installed you can ensure that it was configured properly by 
 $ php ./app.php configure
 ```
 
+## Running GRPC Server
+In order to run GRPC server you must specify location of server key and certificate in `.rr.yaml` file:
+
+```yaml
+grpc:
+  listen: tcp://0.0.0.0:50051
+  proto: "proto/service.proto"
+  workers.command: "php app.php"
+  tls.key:  "app.key"
+  tls.cert: "app.crt"
+```
+
+To issue local certificate:
+
+```
+$ openssl req -newkey rsa:2048 -nodes -keyout app.key -x509 -days 365 -out app.crt
+```
+
 To start application server execute:
 
 ```
@@ -50,11 +68,16 @@ $ ./spiral serve -v -d
 
 On Windows:
 
-```$xslt
+```
 $ spiral.exe serve -v -d
 ```
 
-TODO: write how to start grpc and test it
+You can test your endpoints using any GRPC client. For example using [grpcui](https://github.com/fullstorydev/grpcui):
+Make sure to use `-insecure` option while using self-signed certificate.
+
+```
+$ grpcui -insecure -import-path ./proto/ -proto service.proto localhost:50051
+``` 
 
 > Read more about application server configuration [here](https://roadrunner.dev/docs).
 
