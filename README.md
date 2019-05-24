@@ -72,12 +72,12 @@ $ spiral.exe serve -v -d
 ```
 
 You can test your endpoints using any GRPC client. For example using [grpcui](https://github.com/fullstorydev/grpcui):
-Make sure to use `-insecure` option while using self-signed certificate.
 
 ```
 $ grpcui -insecure -import-path ./proto/ -proto service.proto localhost:50051
 ``` 
 
+> Make sure to use `-insecure` option while using self-signed certificate.
 > Read more about application server configuration [here](https://roadrunner.dev/docs).
 
 Generating Services
