@@ -78,7 +78,6 @@ $ grpcui -insecure -import-path ./proto/ -proto service.proto localhost:50051
 ``` 
 
 > Make sure to use `-insecure` option while using self-signed certificate.
-> Read more about application server configuration [here](https://roadrunner.dev/docs).
 
 Generating Services
 --------
