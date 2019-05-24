@@ -58,7 +58,7 @@ TODO: write how to start grpc and test it
 
 > Read more about application server configuration [here](https://roadrunner.dev/docs).
 
-Generating services
+Generating Services
 --------
 To update or generate service code for your application run:
 
