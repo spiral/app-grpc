@@ -9,10 +9,10 @@ import "import/message.proto";
 
 service Service {
     // Render welcome message
-    rpc Welcome (message.Message) returns (message.Message) {
+    rpc Welcome (app.message.Message) returns (app.message.Message) {
     }
 
     // Schedule simple job
-    rpc Schedule (message.Job) returns (message.JobID) {
+    rpc Schedule (app.message.Job) returns (app.message.JobID) {
     }
 }
