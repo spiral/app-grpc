@@ -24,7 +24,6 @@ Application bundle includes following components:
 * GRPC Server
 * Console commands via symfony/console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
-* queue support for AMQP, Beanstalk, Amazon SQS
 * DBAL and migrations support
 * [Cycle DataMapper ORM](https://github.com/cycle)
 
