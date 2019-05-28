@@ -14,8 +14,7 @@ Make sure that your server is configured with following PHP version and extensio
 * PHP 7.1+
 * MbString Extension
 * PDO Extension with desired database drivers
-
-> [Install](https://github.com/protocolbuffers/protobuf/tree/master/php) `protobuf-ext` to gain higher performance. 
+* [Install](https://github.com/protocolbuffers/protobuf/tree/master/php) `protobuf-ext` to gain higher performance. 
 
 Application Bundle
 --------
