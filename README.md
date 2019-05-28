@@ -20,8 +20,7 @@ Make sure that your server is configured with following PHP version and extensio
 Application Bundle
 --------
 Application bundle includes following components:
-* High-Performance HTTP, HTTP/2 server based on [RoadRunner](https://roadrunner.dev)
-* GRPC Server
+* GRPC Server server based on [RoadRunner](https://roadrunner.dev)
 * Console commands via symfony/console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
 * DBAL and migrations support
