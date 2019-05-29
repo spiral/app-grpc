@@ -81,6 +81,10 @@ $ grpcui -insecure -import-path ./proto/ -proto service.proto localhost:50051
 
 Generating Services
 --------
+In order to compile protobuf declarations into service code make sure to install:
+* [protoc compiler](https://github.com/protocolbuffers/protobuf)
+* [protoc-gen-php-grpc plugin](https://github.com/spiral/php-grpc)
+
 To update or generate service code for your application run:
 
 ```
