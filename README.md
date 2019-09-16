@@ -24,7 +24,7 @@ Application bundle includes following components:
 * Console commands via symfony/console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
 * DBAL and migrations support
-* Monlog logger
+* Monolog logger
 * .env files support
 * [Cycle DataMapper ORM](https://github.com/cycle)
 
