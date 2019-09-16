@@ -23,9 +23,8 @@ Application bundle includes the following components:
 * Console commands via Symfony/Console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
 * DBAL and migrations support
-* Monolog logger
+* Monolog, Dotenv
 * Prometheus metrics
-* .env files support
 * [Cycle DataMapper ORM](https://github.com/cycle)
 
 Installation
