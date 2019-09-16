@@ -12,7 +12,7 @@ Server Requirements
 --------
 Make sure that your server is configured with following PHP version and extensions:
 * PHP 7.2+, 64bit
-* MbString Extension
+* **mb-string** extension
 * PDO Extension with desired database drivers
 * [Install](https://github.com/protocolbuffers/protobuf/tree/master/php) `protobuf-ext` to gain higher performance. 
 
@@ -20,6 +20,7 @@ Application Bundle
 --------
 Application bundle includes following components:
 * GRPC Server server based on [RoadRunner](https://roadrunner.dev)
+* Prometheus metrics
 * Console commands via symfony/console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
 * DBAL and migrations support
