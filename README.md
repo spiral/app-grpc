@@ -18,13 +18,13 @@ Make sure that your server is configured with following PHP version and extensio
 
 Application Bundle
 --------
-Application bundle includes following components:
+Application bundle includes the following components:
 * GRPC Server server based on [RoadRunner](https://roadrunner.dev)
-* Prometheus metrics
-* Console commands via symfony/console
+* Console commands via Symfony/Console
 * Queue support for AMQP, Beanstalk, Amazon SQS, in-Memory
 * DBAL and migrations support
 * Monolog logger
+* Prometheus metrics
 * .env files support
 * [Cycle DataMapper ORM](https://github.com/cycle)
 
@@ -36,7 +36,7 @@ composer create-project spiral/app-grpc
 
 > Application server will be downloaded automatically (`php-curl` and `php-zip` required).
 
-Once application is installed you can ensure that it was configured properly by executing:
+Once the application is installed you can ensure that it was configured properly by executing:
 
 ```
 $ php ./app.php configure
@@ -78,7 +78,7 @@ You can test your endpoints using any GRPC client. For example using [grpcui](ht
 $ grpcui -insecure -import-path ./proto/ -proto service.proto localhost:50051
 ``` 
 
-> Make sure to use `-insecure` option while using self-signed certificate.
+> Make sure to use `-insecure` option while using a self-signed certificate.
 
 Generating Services
 --------
