@@ -4,3 +4,4 @@ runtime
 composer.lock
 rr*
 .env
+spiral*

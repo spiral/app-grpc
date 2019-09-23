@@ -47,9 +47,7 @@ class Service implements ServiceInterface, SingletonInterface
      */
     public function Schedule(GRPC\ContextInterface $ctx, Message\Job $in): Message\JobID
     {
-        $id = $this->queue->push(new Ping([
-            'value' => $in->getValue()
-        ]));
+        $id = $this->queue->push(Ping::class, ['value' => $in->getValue()]);
 
         $out = new Message\JobID();
         $out->setId($id);

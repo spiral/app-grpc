@@ -9,12 +9,10 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Bootloader\LoggingBootloader;
-use App\Bootloader\RoutesBootloader;
-use Spiral\Bootloader;
+use Spiral\Bootloader as Framework;
 use Spiral\DotEnv\Bootloader as DotEnv;
 use Spiral\Framework\Kernel;
-use Spiral\Monolog\Bootloader as Monolog;
+use Spiral\Prototype\Bootloader as Prototype;
 
 class App extends Kernel
 {
@@ -27,36 +25,33 @@ class App extends Kernel
         DotEnv\DotenvBootloader::class,
 
         // Core Services
-        Bootloader\DebugBootloader::class,
-        Bootloader\SnapshotsBootloader::class,
+        Framework\DebugBootloader::class,
+        Framework\SnapshotsBootloader::class,
 
         // Security and validation
-        Bootloader\Security\EncrypterBootloader::class,
+        Framework\Security\EncrypterBootloader::class,
 
         // Databases
-        Bootloader\Database\DatabaseBootloader::class,
-        Bootloader\Database\MigrationsBootloader::class,
+        Framework\Database\DatabaseBootloader::class,
+        Framework\Database\MigrationsBootloader::class,
 
         // ORM
-        Bootloader\Cycle\CycleBootloader::class,
-        Bootloader\Cycle\ProxiesBootloader::class,
-        Bootloader\Cycle\AnnotatedBootloader::class,
+        Framework\Cycle\CycleBootloader::class,
+        Framework\Cycle\ProxiesBootloader::class,
+        Framework\Cycle\AnnotatedBootloader::class,
 
         // Dispatchers
-        Bootloader\GRPC\GRPCBootloader::class,
-        Bootloader\Jobs\JobsBootloader::class,
-
-        // Extensions and bridges
-        Monolog\MonologBootloader::class,
+        Framework\GRPC\GRPCBootloader::class,
+        Framework\Jobs\JobsBootloader::class,
 
         // Framework commands
-        Bootloader\CommandBootloader::class
+        Framework\CommandBootloader::class
     ];
 
     /*
      * Application specific services and extensions.
      */
     protected const APP = [
-
+        Prototype\PrototypeBootloader::class
     ];
 }
