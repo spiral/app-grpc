@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Spiral Framework.
  *
  * @license   MIT
  * @author    Anton Titov (Wolfy-J)
  */
+
 declare(strict_types=1);
 
 namespace App;
@@ -25,10 +27,7 @@ class App extends Kernel
         DotEnv\DotenvBootloader::class,
 
         // Core Services
-        Framework\DebugBootloader::class,
         Framework\SnapshotsBootloader::class,
-
-        // Security and validation
         Framework\Security\EncrypterBootloader::class,
 
         // Databases
@@ -45,7 +44,11 @@ class App extends Kernel
         Framework\Jobs\JobsBootloader::class,
 
         // Framework commands
-        Framework\CommandBootloader::class
+        Framework\CommandBootloader::class,
+
+        // Debugging
+        Framework\DebugBootloader::class,
+        Framework\Debug\LogCollectorBootloader::class
     ];
 
     /*
