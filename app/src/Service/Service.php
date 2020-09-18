@@ -37,7 +37,7 @@ class Service implements ServiceInterface, SingletonInterface
     public function Welcome(GRPC\ContextInterface $ctx, Message\Message $in): Message\Message
     {
         $out = new Message\Message();
-        $out->setMsg("Hello, " . $in->getMsg());
+        $out->setMsg('Hello, ' . $in->getMsg());
 
         return $out;
     }
