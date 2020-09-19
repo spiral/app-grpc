@@ -48,13 +48,13 @@ class App extends Kernel
 
         // Debugging
         Framework\DebugBootloader::class,
-        Framework\Debug\LogCollectorBootloader::class
+        Framework\Debug\LogCollectorBootloader::class,
     ];
 
     /*
      * Application specific services and extensions.
      */
     protected const APP = [
-        Prototype\PrototypeBootloader::class
+        Prototype\PrototypeBootloader::class,
     ];
 }
