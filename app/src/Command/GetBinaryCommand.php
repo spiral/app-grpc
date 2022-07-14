@@ -78,13 +78,13 @@ class GetBinaryCommand extends Command
 
         // Installation
         $output->writeln(
-            \sprintf("  - <info>%s</info>", $release->getRepositoryName()) .
+            \sprintf('  - <info>%s</info>', $release->getRepositoryName()) .
             \sprintf(' (<comment>%s</comment>):', $release->getVersion()) .
             ' Downloading...'
         );
 
         if ($output->isVerbose()) {
-            $output->writeln(\sprintf("     -- <info>%s</info>", $asset->getName()));
+            $output->writeln(\sprintf('     -- <info>%s</info>', $asset->getName()));
         }
 
         // Install rr binary
@@ -170,7 +170,8 @@ class GetBinaryCommand extends Command
 
         foreach ($filtered as $release) {
             $asset = $release->getAssets()
-                ->filter(static fn (AssetInterface $asset): bool =>
+                ->filter(
+                    static fn (AssetInterface $asset): bool =>
                 \str_starts_with($asset->getName(), 'protoc-gen-php-grpc')
                 )
                 ->whereArchitecture($archOption)
