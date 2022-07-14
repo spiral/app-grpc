@@ -13,7 +13,7 @@ Spiral Framework is a High-Performance PHP/Go Full-Stack framework and group of 
 Server Requirements
 --------
 Make sure that your server is configured with following PHP version and extensions:
-* PHP 7.2+, 64bit
+* PHP 8.0+, 64bit
 * **mb-string** extension
 * PDO Extension with desired database drivers
 * [Install](https://github.com/protocolbuffers/protobuf/tree/master/php) `protobuf-ext` to gain higher performance. 
@@ -48,11 +48,16 @@ In order to run GRPC server you must specify location of server key and certific
 
 ```yaml
 grpc:
-  listen: tcp://0.0.0.0:50051
-  proto: "proto/service.proto"
-  workers.command: "php app.php"
-  tls.key:  "app.key"
-  tls.cert: "app.crt"
+    listen: "tcp://0.0.0.0:50051"
+    proto:
+        - "proto/service.proto"
+    tls:
+        key: "app.key"
+        cert: "app.crt"
+    pool:
+        num_workers: 2
+        supervisor:
+            max_worker_memory: 100
 ```
 
 To issue local certificate:
@@ -64,13 +69,13 @@ $ openssl req -newkey rsa:2048 -nodes -keyout app.key -x509 -days 365 -out app.c
 To start application server execute:
 
 ```
-$ ./spiral serve -v -d
+$ ./rr serve
 ```
 
 On Windows:
 
 ```
-$ spiral.exe serve -v -d
+$ rr.exe serve
 ```
 
 You can test your endpoints using any GRPC client. For example using [grpcui](https://github.com/fullstorydev/grpcui):
@@ -90,7 +95,7 @@ In order to compile protobuf declarations into service code make sure to install
 To update or generate service code for your application run:
 
 ```
-$ php ./app.php grpc:generate proto/service.proto
+$ php ./app.php grpc:generate
 ```
 
 Generated code will be available in `app/src/Service`. Implemented service will be automatically registered in your application.

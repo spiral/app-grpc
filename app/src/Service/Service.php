@@ -13,27 +13,16 @@ namespace App\Service;
 
 use App\Job\Ping;
 use Spiral\Core\Container\SingletonInterface;
-use Spiral\GRPC;
-use Spiral\Jobs\QueueInterface;
+use Spiral\RoadRunner\GRPC;
+use Spiral\Queue\QueueInterface;
 
 class Service implements ServiceInterface, SingletonInterface
 {
-    /** @var QueueInterface */
-    private $queue;
-
-    /**
-     * @param QueueInterface $queue
-     */
-    public function __construct(QueueInterface $queue)
-    {
-        $this->queue = $queue;
+    public function __construct(
+        private QueueInterface $queue
+    ) {
     }
 
-    /**
-     * @param GRPC\ContextInterface $ctx
-     * @param Message\Message       $in
-     * @return Message\Message
-     */
     public function Welcome(GRPC\ContextInterface $ctx, Message\Message $in): Message\Message
     {
         $out = new Message\Message();
@@ -42,11 +31,6 @@ class Service implements ServiceInterface, SingletonInterface
         return $out;
     }
 
-    /**
-     * @param GRPC\ContextInterface $ctx
-     * @param Message\Job           $in
-     * @return Message\JobID
-     */
     public function Schedule(GRPC\ContextInterface $ctx, Message\Job $in): Message\JobID
     {
         $id = $this->queue->push(Ping::class, ['value' => $in->getValue()]);

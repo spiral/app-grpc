@@ -1,25 +1,29 @@
-# grpc service configuration.
-grpc:
-  listen: tcp://0.0.0.0:50051
-  proto: "proto/service.proto"
-  workers.command: "php app.php"
-  tls.key:  "app.key"
-  tls.cert: "app.crt"
+version: '2.7'
+
+rpc:
+    listen: tcp://127.0.0.1:6001
+
+server:
+    command: "php app.php"
+    relay: pipes
 
 # queue and jobs
 jobs:
-  dispatch:
-    app-job-*.pipeline: "local"
-  pipelines:
-    local:
-      broker: "ephemeral"
-  consume: ["local"]
+    consume: [ "local" ]
+    pool:
+        num_workers: 2
+        supervisor:
+            max_worker_memory: 100
 
-  workers:
-    command: "php app.php"
-    pool.numWorkers: 2
-
-# control the max memory usage
-limit:
-  services:
-    grpc.maxMemory: 100
+# grpc service configuration.
+grpc:
+    listen: "tcp://0.0.0.0:50051"
+    proto:
+        - "proto/service.proto"
+    tls:
+        key: "app.key"
+        cert: "app.crt"
+    pool:
+        num_workers: 2
+        supervisor:
+            max_worker_memory: 100

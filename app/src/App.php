@@ -13,8 +13,10 @@ namespace App;
 
 use Spiral\Bootloader as Framework;
 use Spiral\DotEnv\Bootloader as DotEnv;
+use Spiral\Cycle\Bootloader as CycleBridge;
 use Spiral\Framework\Kernel;
 use Spiral\Prototype\Bootloader as Prototype;
+use Spiral\RoadRunnerBridge\Bootloader as RoadRunnerBridge;
 
 class App extends Kernel
 {
@@ -31,20 +33,23 @@ class App extends Kernel
         Framework\Security\EncrypterBootloader::class,
 
         // Databases
-        Framework\Database\DatabaseBootloader::class,
-        Framework\Database\MigrationsBootloader::class,
+        CycleBridge\DatabaseBootloader::class,
+        CycleBridge\MigrationsBootloader::class,
 
         // ORM
-        Framework\Cycle\CycleBootloader::class,
-        Framework\Cycle\ProxiesBootloader::class,
-        Framework\Cycle\AnnotatedBootloader::class,
+        CycleBridge\SchemaBootloader::class,
+        CycleBridge\CycleOrmBootloader::class,
+        CycleBridge\AnnotatedBootloader::class,
+        CycleBridge\CommandBootloader::class,
 
         // Dispatchers
-        Framework\GRPC\GRPCBootloader::class,
-        Framework\Jobs\JobsBootloader::class,
+        RoadRunnerBridge\GRPCBootloader::class,
+        RoadRunnerBridge\QueueBootloader::class,
 
         // Framework commands
         Framework\CommandBootloader::class,
+        CycleBridge\CommandBootloader::class,
+        RoadRunnerBridge\CommandBootloader::class,
 
         // Debugging
         Framework\DebugBootloader::class,

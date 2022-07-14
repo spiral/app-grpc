@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+    compiler:
+        image: spiralscout/php81-grpc:1.0.0
+        volumes:
+            - .:/app
+        command: >
+            bash -c "cd ./app
+            && [ -f ./protoc-gen-php-grpc ] || php ./app.php get-protoc-binary
+            && php ./app.php grpc:generate"
