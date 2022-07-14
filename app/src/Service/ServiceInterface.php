@@ -5,7 +5,7 @@
 
 namespace App\Service;
 
-use Spiral\GRPC;
+use Spiral\RoadRunner\GRPC;
 use App\Service\Message;
 
 interface ServiceInterface extends GRPC\ServiceInterface

@@ -30,9 +30,13 @@ require __DIR__ . '/vendor/autoload.php';
 //
 // Initialize shared container, bindings, directories and etc.
 //
-$app = App::init(['root' => __DIR__]);
+$app = App::create(
+    directories: ['root' => __DIR__]
+)->run();
 
-if ($app !== null) {
-    $code = (int)$app->serve();
-    exit($code);
+if ($app === null) {
+    exit(255);
 }
+
+$code = (int)$app->serve();
+exit($code);

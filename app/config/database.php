@@ -9,6 +9,8 @@
 
 declare(strict_types=1);
 
+use Cycle\Database\Config;
+
 return [
     /**
      * Default database connection
@@ -36,10 +38,9 @@ return [
      * the driver class and its connection options.
      */
     'drivers'   => [
-        'sqlite' => [
-            'driver'     => \Spiral\Database\Driver\SQLite\SQLiteDriver::class,
-            'connection' => 'sqlite:' . directory('root') . 'app.db',
-            'profiling'  => true,
-        ],
+        'sqlite' => new Config\SQLiteDriverConfig(
+            connection: new Config\SQLite\MemoryConnectionConfig(),
+            queryCache: true
+        ),
     ],
 ];
