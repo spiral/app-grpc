@@ -7,5 +7,5 @@ services:
             - .:/app
         command: >
             bash -c "cd ./app
-            && [ -f ./protoc-gen-php-grpc ] || php ./app.php get-protoc-binary
+            && [ -f ./protoc-gen-php-grpc ] || ./vendor/bin/rr download-protoc-binary
             && php ./app.php grpc:generate"
