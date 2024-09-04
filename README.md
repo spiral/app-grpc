@@ -1,3 +1,8 @@
+> [!WARNING]
+> # The repository is deprecated in favor of [`spiral/app`](https://github.com/spiral/app).
+
+<details>
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/2461257/112313394-d926c580-8cb8-11eb-84ea-717df4e4d167.png" width="400" alt="Spiral Framework">
 </p>
@@ -103,3 +108,5 @@ Generated code will be available in `app/src/Service`. Implemented service will 
 License:
 --------
 MIT License (MIT). Please see [`LICENSE`](./LICENSE) for more information. Maintained by [Spiral Scout](https://spiralscout.com).
+
+</details>
